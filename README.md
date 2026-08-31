@@ -181,9 +181,9 @@ The controller runs at **100 Hz**, with the TVC output limited to **±15°**.
 |  9 | Toggle Switch               |        1 |
 | 10 | LM7805 5V Voltage Regulator |        2 |
 | 11 | 18650 Li-ion Cells          |        2 |
+| 12 | 4 × 6 cm Perfboard.         |        1 |
 
 ### LaunchPad igniton
-
 |  # | Component                                                | Quantity |
 | -: | -------------------------------------------------------- | -------: |
 |  1 | Arduino MKR WiFi 1000                                    |        1 |
@@ -196,6 +196,7 @@ The controller runs at **100 Hz**, with the TVC output limited to **±15°**.
 |  8 | Diode                                                    |        1 |
 |  9 | ON/OFF Switch                                            |        1 |
 | 10 | 18650 Li-ion Cells                                       |        3 |
+| 11 | 8 × 12 cm Perfboard.                                     |        1 |
 
 ## Pinout and Wiring
 
