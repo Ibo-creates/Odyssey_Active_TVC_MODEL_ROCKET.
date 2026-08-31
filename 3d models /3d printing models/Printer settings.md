@@ -3,6 +3,7 @@
 **Printer Nozzle:** 0.4 mm
 
 Supports: On 
+Filament: PETG
 
 | Part                    | Material | Infill |
 | ----------------------- | -------- | -----: |
