@@ -37,14 +37,14 @@ The flight log data is then recorded into a 8 gb SD card, which can be later rea
 
 * Vertical IMU Mounting: Custom math engine tailored for vertical IMU orientation.
 * Flight State Machine: Automated transitions through PAD, IGNITION, COAST, APOGEE, and LANDED states.
-* Barometric and IMU Telemetry: Live logging of altitude, acceleration, attitude angles, and PID servo outputs directly to an onboard microSD card.
+* Barometric and IMU Telemetry: Live logging of altitude, acceleration, attitude angles, and PID servo outputs directly to an onboard microsd card.
 * Fully custom 3d printed design.
 * 2-axis TVC gimble.
 * Automatic parachute mechanical syetem at apogee.
 * Onboard data logging.
 
 
-### 📡 Wireless Launch System
+### Wireless Launch System
 
 * Wireless launch command
 * 3 step launch verfication.
@@ -65,51 +65,6 @@ The flight log data is then recorded into a 8 gb SD card, which can be later rea
 | OutputYaw   | TVC yaw correction            |
 
 
-### PID Closed-Loop  TVC Control System
-
-                         ┌──────────────────────┐
-                         │   Desired Attitude   │
-                         │      / Reference     │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                              ┌───────────┐
-                              │  SUM /    │
-                    ┌────────►│   ERROR   │
-                    │         │  θref - θ │
-                    │         └─────┬─────┘
-                    │               │
-                    │               ▼
-                    │        ┌─────────────┐
-                    │        │     PID     │
-                    │        │ Controller   │
-                    │        │              │
-                    │        │ P + I + D   │
-                    │        └──────┬──────┘
-                    │               │
-                    │        TVC command
-                    │               │
-                    │               ▼
-                    │        ┌─────────────┐
-                    │        │   Servos +  │
-                    │        │  TVC Gimbal │
-                    │        └──────┬──────┘
-                    │               │
-                    │          Thrust Vector
-                    │               │
-                    │               ▼
-                    │        ┌─────────────┐
-                    │        │   ROCKET    │
-                    │        │   Dynamics  │
-                    │        └──────┬──────┘
-                    │               │
-                    │          Attitude θ
-                    │               │
-                    │               ▼
-                    │        ┌─────────────┐
-                    └────────│   MPU6050   │
-                             │     IMU     │
-                             └─────────────┘
 
 
 The controller continuously compares the desired Yaw and Pitch with the measured ones. The resulting error is processed by the PID controller, which generates a TVC command. The Output result then send a correction angle for the servos to move in a way that steers the rocket back to the vertical axis, the loop repeats until desired postion is reached.
@@ -119,19 +74,19 @@ The controller continuously compares the desired Yaw and Pitch with the measured
 PAD
  │
  │ Liftoff detected
- ▼
+ 
 IGNITION
  │
  │ Burnout detected
- ▼
+ 
 COAST
  │
  │ Apogee detected
- ▼
+ 
 APOGEE
  │
  │ Deployment
- ▼
+ 
 LANDED
 ## Control and Mathematics Overview
 
