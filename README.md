@@ -160,7 +160,7 @@ The controller runs at **100 Hz**, with the TVC output limited to **±15°**.
 
 ## Hardware Electronics 
 
-# Flight computer
+### Flight computer
 
 |  # | Component                   | Quantity |
 | -: | --------------------------- | -------: |
@@ -176,7 +176,7 @@ The controller runs at **100 Hz**, with the TVC output limited to **±15°**.
 | 10 | LM7805 5V Voltage Regulator |        2 |
 | 11 | 18650 Li-ion Cells          |        2 |
 
-# LaunchPad igniton
+### LaunchPad igniton
 
 |  # | Component                                                | Quantity |
 | -: | -------------------------------------------------------- | -------: |
