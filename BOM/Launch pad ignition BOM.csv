@@ -1,0 +1,14 @@
+#,Component,Specification,Qty,Cost,Supplier,Link
+1,Arduino MKR WiFi 1000,Microcontroller,1,$59.80,Aliexpress,https://www.aliexpress.com/item/1005012576306573.html
+2,Wireless Rf remote module,"IC2272 4-Channel Wireless RF Transceiver Module
+",1,$12.99,Amazon,https://www.amazon.ca/Channel-Wireless-Control-Transmitter-Receiver/dp/B00XDTG644
+3,Relay,5 V,1,$1.86 ,Aliexpress,https://www.aliexpress.com/item/1005012716803241.html
+4,LM7805,5 V Regulator,1,$4.99,Amazon,https://www.amazon.com/Regulator-Integrated-Circuits-Positive-Regulators/dp/B0BRV3YRK3?th=1
+5,Buzzer,5 V,1,$7.99,Amazon,https://www.amazon.com/QMseller-Terminals-Raspberry-Electronic-Continous/dp/B07VRK7ZPF
+6,NPN Transistor,Switching / Driver,1,$8.99,Amazon,https://www.amazon.ca/-/fr/2N3904-Power-transistors-jonction-bipolaire/dp/B0DMVQSLWF?th=1
+7,Green LED,5 mm,1,$7.99,Amazon,https://www.amazon.com/dp/B01AUI4VVA?th=1
+8,Diode,Relay protection,1,$6.99,Amazon,https://www.amazon.com/dp/B083DXTTXS
+9,ON/OFF Switch,Main Power,1,$5.99,Amazon,https://www.amazon.com/clp/B01N2U8PK0
+10,18650 Cell,Li-ion,3,$8.07,Amazon,https://www.aliexpress.com/item/1005007910903881.html?utm_source=chatgpt.com
+11,Perfboard,8 × 12 cm,1,$5.54,Aliexpress,https://www.aliexpress.com/item/1890414289.html
+Total Cost,-,-,-,$131.2,-,-

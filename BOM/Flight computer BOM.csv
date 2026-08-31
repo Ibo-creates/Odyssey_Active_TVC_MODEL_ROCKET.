@@ -1,0 +1,15 @@
+#,Component,Specification,Qty,Cost,Supplier,Link
+1,Arduino Uno,ATmega328P,1,$ 27.6,Amazon,https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6?utm_source=chatgpt.com
+2,MPU6050,6-Axis IMU,1,$ 8.99,Amazon,https://www.amazon.com/dp/B09TVYVC6X
+3,BMP280,Barometric Sensor,1,$5.49 ,Amazon,https://www.amazon.com/dp/B01ICN5QPU
+4,MicroSD Module,SPI,1,$6.99,Amazon,https://www.amazon.com/dp/B07BJ2P6X6
+5,MicroSD Card,8 GB,1,$11.84,Amazon,https://www.amazon.com/dp/9983039281
+7,Mg 90 Servo Motor,Parachute Deployment/ gamble,3,$8.68 x 3 = $26.04,Amazon,https://www.amazon.com/dp/B0BHYHKF2P
+8,Active Buzzer,5 V,1,$7.99,Amazon,https://www.amazon.com/QMseller-Terminals-Raspberry-Electronic-Continous/dp/B07VRK7ZPF
+9,NPN Transistor,Switching / Driver,1,$8.99,Amazon,https://www.amazon.ca/-/fr/2N3904-Power-transistors-jonction-bipolaire/dp/B0DMVQSLWF?th=1
+10,Green LED,5 mm,1,$7.99,Amazon,https://www.amazon.com/dp/B01AUI4VVA?th=1
+11,Toggle Switch,Power,1,$6.99,Amazon,https://www.amazon.com/-/es/EGSCST/dp/B0FH26ZN3N?th=1
+12,LM7805,5 V Regulator,2,$4.99,Amazon,https://www.amazon.com/Regulator-Integrated-Circuits-Positive-Regulators/dp/B0BRV3YRK3?th=1
+13,18650 Cell,Li-ion,2,$5.38,Aliexpress,https://www.aliexpress.com/item/1005007910903881.html?utm_source=chatgpt.com
+14,Perfboard,5 x 7 cm,1,$6.99,Amazon,https://www.amazon.com/dp/B012YZ2Q4G?ref=clp_cat_p_2
+Total Cost ,-,-,-,$128.28,-,-
