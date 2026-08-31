@@ -1,6 +1,6 @@
 # 🚀 Odyssey
 
-![Odyssey Rocket](media/images/Rocket.jpeg)
+![Odyssey Rocket](imagesandvideos/rocket/image/Rocket.jpeg)
 
 ### A Thrust Vector Controlled Rocket
 
