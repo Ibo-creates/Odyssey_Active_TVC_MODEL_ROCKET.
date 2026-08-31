@@ -127,7 +127,6 @@ APOGEE
  │ Deployment
  ▼
 LANDED
-
 ## Control and Mathematics Overview
 
 
