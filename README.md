@@ -93,7 +93,7 @@ LANDED
 
 ### PID Control math 
 
-Odyssey uses a PID controller to convert attitude error into TVC servo corrections:
+Odyssey uses a PD controller to convert attitude error into TVC servo corrections:
 
 $$
 u = K_p e + K_i\int e\,dt + K_d\frac{de}{dt}
