@@ -5,11 +5,12 @@
 > **Odyssey** is an actively stabilized rocket featuring a custom 2-axis Thrust Vector Control (TVC) system with a parachute mechansim , a custom flight computer packed MPU6050 IMU, PID-based control, and onboard flight-data logging, which handles , G-forces, yaw, pitch and PID calulations.
 > This also includes a custom launch radio remote Igniton system.
 
-![Odyssey](media/images/rocket.jpg)
-
+  
 ## Overview
 
 **Odyssey** explores an alternative to conventional fins rocket stabilization.
+
+(A flight hasnt be logged yet due to restrictions of commerically available G-class motors)
 
 It has been a dream of mine to build a guided rocket, for which I explored an alternative method to conventional fins rocket stablization, and Thrust vector control instead. This works by moving the rocket's motor using a custom 2 axis servo gimble, yaw and pitch, relying on correction angles received from the flight computer running a custom PID algrothim. 
 
@@ -21,15 +22,22 @@ The flight log data is then recorded into a 8 gb SD card, which can be later rea
 
 
 
+
+
 ## Features
 
      
 
 ### Rocket
 
+* Dry mass of approximately: 1kg
+* height: 60 cm
+* Outer diameter : 9.2 cm
+* Rocket motor class to be used : Estes G class motor
+
 * Vertical IMU Mounting: Custom math engine tailored for vertical IMU orientation.
 * Flight State Machine: Automated transitions through PAD, IGNITION, COAST, APOGEE, and LANDED states.
-* Barometric & IMU Telemetry: Live logging of altitude, acceleration, attitude angles, and PID servo outputs directly to an onboard microSD card.
+* Barometric and IMU Telemetry: Live logging of altitude, acceleration, attitude angles, and PID servo outputs directly to an onboard microSD card.
 * Fully custom 3d printed design.
 * 2-axis TVC gimble.
 * Automatic parachute mechanical syetem at apogee.
@@ -40,10 +48,8 @@ The flight log data is then recorded into a 8 gb SD card, which can be later rea
 
 * Wireless launch command
 * 3 step launch verfication.
-* RF controlled relay
 * Remote ignition control
-* Launch-system status indicator
-* Physical safety interlock
+* Launch system status indicator
 
 ### Parameters logged
 
@@ -245,7 +251,7 @@ Install the following libraries using the Arduino Library Manager:
 7. Click on the " insert " option, select the " Scatter graph with smooth lines " .
 
                    
-
+---
  
 
 **Odyssey — Ground Tested · Flight Pending**
