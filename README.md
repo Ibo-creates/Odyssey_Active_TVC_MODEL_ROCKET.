@@ -69,7 +69,7 @@ The flight log data is then recorded into a 8 gb SD card, which can be later rea
 The controller continuously compares the desired Yaw and Pitch with the measured ones. The resulting error is processed by the PID controller, which generates a TVC command. The Output result then send a correction angle for the servos to move in a way that steers the rocket back to the vertical axis, the loop repeats until desired postion is reached.
 
 
-### Features
+## Features
 
      
 
@@ -93,199 +93,163 @@ The controller continuously compares the desired Yaw and Pitch with the measured
 * Launch-system status indicator
 * Physical safety interlock
 
-##Control and Mathematics Overview
+### Parameters logged
 
-1. Attitude Estimation (Vertical Mount)Because the MPU6050 is mounted vertically (aligned with the airframe's longitudinal axis), orientation mapping uses:$$\text{Pitch}_{\text{acc}} = \arctan\left(\frac{-Acc_Y}{\sqrt{Acc_X^2 + Acc_Z^2}}\right) \times 57.296$$$$\text{Yaw}_{\text{acc}} = \arctan\left(\frac{Acc_Z}{\sqrt{Acc_X^2 + Acc_Y^2}}\right) \times 57.296$$Angles are combined via a Complementary Filter ($\alpha = 0.98$):$$\text{Pitch}(t) = 0.98 \cdot (\text{Pitch}_{t-1} + Gyro_Y \cdot dt) + 0.02 \cdot \text{Pitch}_{\text{acc}}$$$$\text{Yaw}(t) = 0.98 \cdot (\text{Yaw}_{t-1} + Gyro_Z \cdot dt) + 0.02 \cdot \text{Yaw}_{\text{acc}}$$2. PID Control LoopGimbal deflection output is calculated to counteract measured angular errors:$$e(t) = \text{Target Angle} - \text{Current Angle}$$$$\text{Output} = K_p \cdot e(t) + K_i \int e(t)\,dt + K_d \cdot \frac{de(t)}{dt}$$Outputs are mechanically constrained to $\pm 15^\circ$ maximum gimbal deflection.
+| Parameter   | Description                   |
+| ----------- | ----------------------------- |
+| Time_ms     | Timestamp                     |
+| State       | Current flight state          |
+| Pitch       | Estimated pitch angle         |
+| Yaw         | Estimated yaw angle           |
+| Altitude    | BMP280 altitude               |
+| GForce      | Calculated total acceleration |
+| OutputPitch | TVC pitch correction          |
+| OutputYaw   | TVC yaw correction            |
 
----
+## Control and Mathematics Overview
 
-## Electronics
 
-| Component      | Purpose             |
-| -------------- | ------------------- |
-| Arduino Uno    | Flight computer     |
-| MPU6050        | Inertial sensing    |
-| Servo motors   | TVC actuation       |
-| SD card module | Flight-data logging |
-| [Battery]      | Power               |
+### PID Control math 
 
-### Architecture
+Odyssey uses a PID controller to convert attitude error into TVC servo corrections:
 
-```text
-                 MPU6050
-                    │
-                    │ I²C
-                    ▼
-              ┌───────────┐
-              │  Arduino  │
-              │    Uno    │
-              └─────┬─────┘
-                    │
-             ┌──────┴──────┐
-             ▼             ▼
-        TVC Servos      SD Card
-             │
-             ▼
-        Gimbal motion
-```
+$$
+u = K_p e + K_i\int e\,dt + K_d\frac{de}{dt}
+$$
 
----
+#### Controller Parameters
 
-## Data Logging
+| Axis  |  Kp |  Ki |   Kd |
+| ----- | --: | --: | ---: |
+| Pitch | 1.2 | 0 | 0.05 |
+| Yaw   | 2.0 | 0 | 0.10 |
 
-Odyssey includes an SD-card data logger for recording sensor and flight information.
+Where:
 
-Example:
+* \(e\) = target attitude − measured attitude
+* \(K_p\) = proportional gain
+* \(K_i\) = integral gain
+* \(K_d\) = derivative gain
+* \(u\) = TVC correction
 
-```csv
-time,altitude,pitch,yaw
-0.00,...
-0.01,...
-0.02,...
-0.03,...
-```
+The controller runs at **100 Hz**, with the TVC output limited to **±15°**.
 
-The recorded data can be used to analyze:
-
-* Attitude
-* Angular velocity
-* Altitude
-* TVC commands
-* Controller response
 
 ---
 
-## Testing
+## Hardware Electronics 
 
-The system was developed and tested progressively.
+# Flight computer
 
-### Component Testing
+|  # | Component                   | Quantity |
+| -: | --------------------------- | -------: |
+|  1 | Arduino Uno                 |        1 |
+|  2 | MPU6050 IMU                 |        1 |
+|  3 | BMP280 Barometric Sensor    |        1 |
+|  4 | MicroSD Card Module         |        1 |
+|  5 | Servo Motors                |        3 |
+|  6 | Buzzer                      |        1 |
+|  7 | NPN Transistor              |        1 |
+|  8 | 5mm Green LED               |        1 |
+|  9 | Toggle Switch               |        1 |
+| 10 | LM7805 5V Voltage Regulator |        2 |
+| 11 | 18650 Li-ion Cells          |        2 |
 
-* [x] MPU6050 communication
-* [x] Sensor readings
-* [x] Arduino flight computer
-* [x] Servo control
-* [x] TVC gimbal movement
-* [x] SD-card logging
+# LaunchPad igniton
 
-### Control Testing
+|  # | Component                                                | Quantity |
+| -: | -------------------------------------------------------- | -------: |
+|  1 | Arduino MKR WiFi 1000                                    |        1 |
+|  2 | 4-Channel NIC2262/2272 Wireless Remote + Receiver Module |        1 |
+|  3 | 5V Relay                                                 |        1 |
+|  4 | LM7805 5V Voltage Regulator                              |        1 |
+|  5 | Buzzer                                                   |        1 |
+|  6 | NPN Transistor                                           |        1 |
+|  7 | 5mm LED                                                  |        1 |
+|  8 | Diode                                                    |        1 |
+|  9 | ON/OFF Switch                                            |        1 |
+| 10 | 18650 Li-ion Cells                                       |        3 |
 
-* [x] IMU response to rotation
-* [x] PID response
-* [x] Closed-loop correction
-* [x] TVC response
+## Pinout and Wiring
 
-### Flight Testing
+### Flight computer
 
-* [ ] Powered flight
-* [ ] In-flight stabilization
-* [ ] Flight-data validation
+| Arduino Uno Pin | Component   | Function             |
+| --------------- | ----------- | -------------------- |
+| **A4 / SDA**    | MPU6050     | I²C Data             |
+| **A5 / SCL**    | MPU6050     | I²C Clock            |
+| **A4 / SDA**    | BMP280      | I²C Data             |
+| **A5 / SCL**    | BMP280      | I²C Clock            |
+| **D10**         | SD Card     | Chip Select          |
+| **D11**         | SD Card     | MOSI                 |
+| **D12**         | SD Card     | MISO                 |
+| **D13**         | SD Card     | SCK                  |
+| **D5**          | TVC Servo X | Pitch control        |
+| **D6**          | TVC Servo Y | Yaw control          |
+| **D9**          | Chute Servo | Parachute deployment |
+| **D3**          | Buzzer      | Audio status         |
+| **D2**          | Green LED   | Status indicator     |
 
----
+### Ignition launch pad
 
-## Simulation
+| Arduino Pin | Connected To       | Function         |
+| ----------- | ------------------ | ---------------- |
+| **D3**      | Radio Receiver CH1 | Sequence input 1 |
+| **D4**      | Radio Receiver CH2 | Sequence input 2 |
+| **D5**      | Radio Receiver CH3 | Sequence input 3 |
+| **D6**      | Relay control      | Launch output    |
+| **D7**      | Green LED          | Status           |
+| **D1**      | Buzzer             | Audio feedback   |
 
-A conventional rocket simulator such as OpenRocket can be useful for analyzing the airframe and estimating trajectory.
 
-However, **OpenRocket does not simulate Odyssey's custom TVC feedback controller**.
+## Software Setup
 
-Because Odyssey is designed around active thrust-vector control, a simulation that does not include the controller may show the vehicle becoming unstable or tumbling. This is expected and does not represent the behavior of the closed-loop TVC system.
+Required Arduino Libraries
+Install the following libraries using the Arduino Library Manager:
 
-For this reason, OpenRocket results are treated as **airframe/trajectory analysis rather than TVC validation**.
+1.Adafruit BMP280 Library
+2.Servo library 
+3.Wire & SPI (Built-in)
 
-The TVC system is instead validated through testing of the actual flight computer, IMU, PID controller, servos, and gimbal.
+## Sd card data logging
 
-A dedicated TVC simulation is planned as future work.
+### Heres how to read the data from sd card
 
----
+1. Take out the sd card from the flight computer.
+2. Insert it into a laptop or pc using an sd card reader usb.
+3. Export the LOG.csv files into excel, google sheets or numbers ( for mac).
+4. Make a Seperate column left to the Time_ms, and write to the 2nd row of the new column " = B2/1000 " , drag the yellow box to the end of the column.
+5. Filter the time period you want to visualise.
+6. Select the two columns you would like to plot on a 2d graph, e.g Altitude at Y axis and Time in seconds in X axis.
+7. Click on the " insert " option, select the " Scatter graph with smooth lines " .
 
-## Current Status
+## System architecture
 
-### ✅ Completed
+                    ODYSSEY SYSTEM
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+          ▼                             ▼
+   FLIGHT COMPUTER                 LAUNCH PAD
+          │                             │
+   ┌──────┼──────┐                ┌─────┼─────┐
+   │      │      │                │     │     │
+ MPU6050 BMP280 SD Card        Radio  Relay  Status
+   │      │      │                │
+   └──────┴──────┘                │
+          │                       │
+          ▼                       │
+     Attitude +                   │
+     Telemetry                    │
+          │                       │
+          ▼                       │
+     PD Controller                │
+          │                       │
+          ▼                       │
+      TVC Servos                  │
+                                  │
+                         Launch authorization
 
-* Rocket CAD
-* Rocket construction
-* 2-axis TVC mechanism
-* Arduino flight computer
-* MPU6050 integration
-* PID controller
-* Servo control
-* SD-card logging
-* Ground testing
-
-### ⏳ Pending
-
-* Powered flight
-* In-flight TVC validation
-* Flight-data comparison
-
-The flight test has not yet been performed because a suitable **G-class motor is currently unavailable locally**.
-
-Therefore, **Odyssey is currently a ground-tested prototype and should not be considered flight-proven.**
-
----
-
-## Repository Structure
-
-```text
-Odyssey/
-│
-├── CAD/
-│   ├── rocket/
-│   └── TVC/
-│
-├── electronics/
-│   ├── schematic/
-│   └── wiring/
-│
-├── firmware/
-│   └── flight_computer/
-│
-├── simulation/
-│
-├── testing/
-│
-├── media/
-│   ├── images/
-│   └── videos/
-│
-└── README.md
-```
-
----
-
-## Lessons Learned
-
-Building Odyssey involved several iterations across the mechanical, electrical, and control systems.
-
-Some of the biggest challenges were:
-
-* Servo power requirements
-* Mechanical backlash
-* IMU axis alignment
-* Sensor noise
-* PID tuning
-* Reliable servo control
-* Power-system stability
-* Integrating the electronics into a compact flight computer
-
-The project demonstrated that building a control system for a physical vehicle introduces problems that are difficult to see from theory alone.
-
----
-
-## Future Work
-
-* Conduct the first controlled powered flight
-* Validate TVC stabilization in flight
-* Analyze recorded flight data
-* Tune the controller using flight data
-* Develop a dedicated TVC simulation
-* Improve attitude estimation
-* Characterize actuator response and mechanical backlash
-
----
-
-## Project Status
 
 **Odyssey — Ground Tested · Flight Pending**
 
