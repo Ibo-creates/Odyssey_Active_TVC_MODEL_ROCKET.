@@ -10,7 +10,7 @@
 
 **Odyssey** explores an alternative to conventional fins rocket stabilization.
 
-(A flight hasnt be logged yet due to restrictions of commerically available G-class motors)
+(A flight hasnt be logged yet due to restrictions of commerically available rocket motors in my country)
 
 It has been a dream of mine to build a guided rocket, for which I explored an alternative method to conventional fins rocket stablization, and Thrust vector control instead. This works by moving the rocket's motor using a custom 2 axis servo gimble, yaw and pitch, relying on correction angles received from the flight computer running a custom PID algrothim. 
 
