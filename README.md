@@ -108,11 +108,11 @@ $$
 
 Where:
 
-* \(e\) = target attitude − measured attitude
-* \(K_p\) = proportional gain
-* \(K_i\) = integral gain
-* \(K_d\) = derivative gain
-* \(u\) = TVC correction
+* e = target attitude − measured attitude
+* kp = proportional gain
+* ki = integral gain
+* kd = derivative gain
+* u = TVC correction
 
 The controller runs at **100 Hz**, with the TVC output limited to **±15°**.
 
