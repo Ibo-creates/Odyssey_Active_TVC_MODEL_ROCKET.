@@ -1,6 +1,6 @@
-const int BTN_1 = 3;     
-const int BTN_2 = 4;     
-const int BTN_3 = 5;     
+const int CH_1 = 3;     
+const int CH_2 = 4;     
+const int CH_3 = 5;     
 
 const int RELAY_PIN = 6; 
 const int LED_PIN   = 7; 
