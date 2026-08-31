@@ -106,6 +106,26 @@ The controller continuously compares the desired Yaw and Pitch with the measured
 | OutputPitch | TVC pitch correction          |
 | OutputYaw   | TVC yaw correction            |
 
+## Flight state machine
+
+PAD
+ │
+ │ Liftoff detected
+ ▼
+IGNITION
+ │
+ │ Burnout detected
+ ▼
+COAST
+ │
+ │ Apogee detected
+ ▼
+APOGEE
+ │
+ │ Deployment
+ ▼
+LANDED
+
 ## Control and Mathematics Overview
 
 
@@ -223,33 +243,9 @@ Install the following libraries using the Arduino Library Manager:
 6. Select the two columns you would like to plot on a 2d graph, e.g Altitude at Y axis and Time in seconds in X axis.
 7. Click on the " insert " option, select the " Scatter graph with smooth lines " .
 
-## System architecture
+                   
 
-                    ODYSSEY SYSTEM
-                         │
-          ┌──────────────┴──────────────┐
-          │                             │
-          ▼                             ▼
-   FLIGHT COMPUTER                 LAUNCH PAD
-          │                             │
-   ┌──────┼──────┐                ┌─────┼─────┐
-   │      │      │                │     │     │
- MPU6050 BMP280 SD Card        Radio  Relay  Status
-   │      │      │                │
-   └──────┴──────┘                │
-          │                       │
-          ▼                       │
-     Attitude +                   │
-     Telemetry                    │
-          │                       │
-          ▼                       │
-     PD Controller                │
-          │                       │
-          ▼                       │
-      TVC Servos                  │
-                                  │
-                         Launch authorization
-
+ 
 
 **Odyssey — Ground Tested · Flight Pending**
 
