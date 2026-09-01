@@ -169,6 +169,9 @@ Odyssey uses a PD controller to convert attitude error into TVC servo correction
 | **D7**      | Green LED          | Status           |
 | **D1**      | Buzzer             | Audio feedback   |
 
+## Onshape Public link: 
+
+https://cad.onshape.com/documents/43eb36db9af5306ca3d18e96/w/deaf376eb42987b9b3412347/e/4c195a71d6f593436827596b?renderMode=0&uiState=6a961fe34aa540bc692539bf
 
 ## Software Setup
 
