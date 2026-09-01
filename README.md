@@ -9,7 +9,7 @@
   
 ## Overview
 
-**Odyssey** explores an alternative to conventional fins rocket stabilization.
+### Demo: https://youtube.com/shorts/ixf_WoA4taA?si=kmYzy9-NjBv1ve3l
 
 (A flight hasnt be logged yet due to restrictions of commerically available rocket motors in my country)
 
