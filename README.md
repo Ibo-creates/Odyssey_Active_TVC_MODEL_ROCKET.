@@ -195,6 +195,13 @@ Install the following libraries using the Arduino Library Manager:
 2.Servo library 
 3.Wire & SPI (Built-in)
 
+### How to upload the code
+
+1. Copy the code from firware repositry
+2. select your com port where the arduino is attached
+3. Select the right board e.g " Arduino uno"
+4. Click upload
+
 ## Sd card data logging
 
 ### Heres how to read the data from sd card
