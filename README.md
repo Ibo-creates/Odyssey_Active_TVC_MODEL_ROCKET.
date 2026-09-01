@@ -109,7 +109,7 @@ Odyssey uses a PD controller to convert attitude error into TVC servo correction
 ### Flight computer
 
 |  # | Component                   | Quantity |
-| -: | --------------------------- | -------: |
+| -: | :-------------------------- | -------: |
 |  1 | Arduino Uno                 |        1 |
 |  2 | MPU6050 IMU                 |        1 |
 |  3 | BMP280 Barometric Sensor    |        1 |
@@ -121,7 +121,9 @@ Odyssey uses a PD controller to convert attitude error into TVC servo correction
 |  9 | Toggle Switch               |        1 |
 | 10 | LM7805 5V Voltage Regulator |        2 |
 | 11 | 18650 Li-ion Cells          |        2 |
-| 12 | 4 × 6 cm Perfboard.         |        1 |
+| 12 | 4 × 6 cm Perfboard          |        1 |
+| 13 | M4 × 6 mm Screws            |       14 |
+
 
 ### LaunchPad igniton
 |  # | Component                                                | Quantity |
