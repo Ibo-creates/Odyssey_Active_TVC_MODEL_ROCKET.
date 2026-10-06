@@ -1,6 +1,7 @@
 # 🚀 Odyssey
 
-![Odyssey Rocket](media/rocket/images/Rocket.jpeg)
+<img width="2048" height="1536" alt="rocekt" src="https://github.com/user-attachments/assets/0ecbce65-38ab-4f91-ab7c-4965c5303a2e" />
+
 ### A Thrust Vector Controlled Rocket
 
 > **Odyssey** is an actively stabilized rocket featuring a custom 2-axis Thrust Vector Control (TVC) system with a parachute mechansim , a custom flight computer packed MPU6050 IMU, PID-based control, and onboard flight-data logging, which handles , G-forces, yaw, pitch and PID calulations.
